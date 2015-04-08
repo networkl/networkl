@@ -41,6 +41,7 @@ new_edges <span class="pl-k">=</span> [(randrange(N),randrange(N)) <span class="
 <span class="pl-k">for</span> i,j <span class="pl-k">in</span> new_edges:                                 
     <span class="pl-k">if</span> G.has_edge(i,j) <span class="pl-k">or</span> i<span class="pl-k">==</span>j:
         <span class="pl-k">continue</span>
+    <span class="pl-k">print</span> <span class="pl-s"><span class="pl-pds">'</span>adding edge (<span class="pl-c1">%s</span>,<span class="pl-c1">%s</span>)<span class="pl-pds">'</span></span><span class="pl-k">%</span>(i,j)
     nl.update_distance_matrix(G,SparseD,i,j,<span class="pl-smi">mode</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>add<span class="pl-pds">'</span></span>)    <span class="pl-c">#add edges and update Distance Matrix</span>
 
 <span class="pl-k">print</span> SparseD[<span class="pl-c1">5</span>][<span class="pl-c1">12</span>]                                           <span class="pl-c">#accessing distance values</span></pre></div>
