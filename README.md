@@ -19,16 +19,16 @@ import networkx as nx
 import networkl as nl
 from random import randrange
 
-N=1000
-G = nx.erdos_renyi_graph(N,0.1)                                 #create a graph
-SparseD = nl.sparse_distance_matrix(G)                          #compute the Sparse Distance Matrix
+N=500
+G = nx.erdos_renyi_graph(N,0.1)                                #create a graph
+SparseD = nl.sparse_distance_matrix(G)                         #compute the Sparse Distance Matrix
 
-new_edges = [(randrange(N),randrange(N)) for c in range(100)]   #add edges and update Distance Matrix
-for i,j in new_edges:
-      if G.has_edge(i,j) or i==j:
-         continue
-      nl.update_distance_matrix(G,SparseD,i,j,mode='add')
-print SparseD[1][1]                                             #accessing distance values
+new_edges = [(randrange(N),randrange(N)) for c in range(100)]
+for i,j in new_edges:                                 
+    print 'adding edge (%s,%s), updating Distance Matrix...'%(i,j)
+    nl.update_distance_matrix(G,SparseD,i,j,mode='add')        #add edges and update Distance Matrix
+
+print SparseD[5][12]                                           #accessing distance values
 ```
 
 Distributed under the GNU v2 license; see LICENSE.txt::
