@@ -141,11 +141,17 @@ def update_distance_matrix (G, D, i, j, mode='add'):
 	if not (j in G.nodes()):
 		raise nl.NetworkLError("node %s does not exist in graph G" % j)
 	if i==j:
-		raise nl.NetworkLError("node i and j are the same")
+		print "Warning: node i and j are the same"
+		#raise nl.NetworkLError("node i and j are the same")
+		return 1
 	if mode=='add' and G.has_edge(i,j):
-		raise nl.NetworkLError("edge (%s,%s) already exist in graph G" % (i,j))
+		print "Warning: edge (%s,%s) already exists in graph G" % (i,j)
+		#raise nl.NetworkLError("edge (%s,%s) already exist in graph G" % (i,j))
+		return 1
 	if mode=='remove' and not G.has_edge(i,j):
-		raise nl.NetworkLError("edge (%s,%s) not exist in graph G" % (i,j))
+		print "Warning: edge (%s,%s) not exist in graph G" % (i,j)
+		#raise nl.NetworkLError("edge (%s,%s) not exist in graph G" % (i,j))
+		return 1
 
 	anchors = []
 	twins = []
