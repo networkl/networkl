@@ -59,14 +59,14 @@ GitHub
 
        git clone https://github.com/networkl/networkl.git
 
-  2. Change directory to :samp:`networkl`
+  2. Change directory to `networkl`
 
-  3. Run :samp:`python setup.py install` to build and install
+  3. Run `python setup.py install` to build and install
 
 
 If you don't have permission to install software on your
 system, you can install into another directory using
-the :samp:`--user`, :samp:`--prefix`, or :samp:`--home` flags to setup.py.
+the `--user`, `--prefix`, or `--home` flags to setup.py.
 
 For example
 
