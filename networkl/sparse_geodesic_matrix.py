@@ -30,7 +30,7 @@ def optimal_dstar(Matrix):
 
 def geodesic_to_sparse_geodesic(G,D):
 	if not nx.is_connected(G):
-		raise NetworkLError('the graph is not connected')
+		raise nl.NetworkLError('the graph is not connected')
 	dstar = optimal_dstar(D)
 	matrix = {i:{j:dij for j,dij in vals.iteritems() if not dij == dstar} for i,vals in D.iteritems()}
 	return SparseGeoMatrix(dstar,matrix)
@@ -46,27 +46,26 @@ class DstarDict():
 	def __init__(self,dstar=4,indict={}):
 		self.dstar = dstar
 		self.indict = indict
-	def get(self,arg,s):
-		return self.indict.get(arg,s)
-	def __getitem__(self, arg):
-		return self.indict.get(arg,self.dstar)
+	def get(self,key,s):
+		return self.indict.get(key,s)
+	def __getitem__(self, key):
+		return self.indict.get(key,self.dstar)
 	def __setitem__(self,key,item):
 		self.indict[key]=item	
 		
 
 #class sparse geodesic matrix
 class SparseGeoMatrix():
-	def __init__(self,dstar=4,matrix={}):
+	def __init__(self,dstar=4,InMatrix={}):
 		self.dstar = dstar
-		self.matrix = matrix
-		self.N = len(matrix)
+		self.matrix = {}
+		for k,v in InMatrix.iteritems():
+			self.matrix[k] = DstarDict(self.dstar,v)
+		self.N = len(InMatrix)
 
 	def __getitem__(self,key):
-		row = self.matrix.get(key,{})
-		if row == {}:
-			print 'No row in SparseGeoMatrix'
-		if not isinstance(row,DstarDict):
-			self.matrix[key] = DstarDict(self.dstar,row)
+#		if not self.matrix.has_key(key):
+#			nl.NetworkLError('No row in SparseGeoMatrix')
 		return self.matrix[key]
 		
 	def set_dstar(self,dstar):
