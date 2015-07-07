@@ -9,7 +9,8 @@ Documentation
    http://networkl.github.io
 Development
    https://github.com/networkl/networkl
-   
+Materials available at:
+   https://github.com/morenobonaventura/networkl_material
 
 A quick example that update the all-pairs shortest path lengths in 
 an undirected graph by using the SparseGeodesicMatrix data structure:
@@ -31,9 +32,9 @@ for i,j in new_edges:
 print SparseD[5][12]                                           #accessing distance values
 ```
 
-Distributed under the GNU v2 license; see LICENSE.txt::
+Distributed under the GNU v3 license; see LICENSE.txt
     
-   Copyright (C) 2015 NetworkL Developers
+   Copyright (C) 2015 NetworkL Developers:
    Moreno Bonaventura <m.bonaventura@qmul.ac.uk> 
 
 
