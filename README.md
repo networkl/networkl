@@ -35,7 +35,7 @@ print SparseD[5][12]                                           #accessing distan
 Distributed under the GNU v3 license; see LICENSE.txt
     
    Copyright (C) 2015 NetworkL Developers:
-   Moreno Bonaventura <m.bonaventura@qmul.ac.uk> 
+   Moreno Bonaventura <morenobonaventura@gmail.com> 
 
 
 
